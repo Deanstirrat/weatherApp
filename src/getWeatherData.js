@@ -3,7 +3,7 @@ export default async function getWeatherData(locationName) {
 
   try {
     // use api to get lat/lon from location name
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=1&appid=${weatherKey}`;
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=1&appid=${weatherKey}`;
     const locationNameJson = await fetch(url, { mode: "cors" });
     const locationNameData = await locationNameJson.json();
     if (locationNameData.length === 0) {
