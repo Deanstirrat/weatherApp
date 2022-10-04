@@ -72,20 +72,21 @@ const header = document.createElement("div");
 header.classList.add("header");
 header.classList.add("accentColorSunny");
 // header contents
-const searchContainer = document.createElement("div");
+const searchContainer = document.createElement("form");
 searchContainer.classList.add("searchContainer");
 const searchInput = document.createElement("input");
 searchInput.classList.add("searchInput");
 searchInput.type = "text";
 searchInput.value = initialCity;
 const searchButton = document.createElement("button");
+// searchButton.type = "submit";
 const searchButtonImage = new Image();
 searchButtonImage.src = Icon;
 searchButtonImage.classList.add("searchButtonImage");
 searchButton.appendChild(searchButtonImage);
 searchButton.classList.add("searchButton");
-searchButton.addEventListener("click", async () => {
-  const locationName = searchInput.value;
+searchButton.addEventListener("click", async (e) => {
+  e.preventDefault();
   buildWeatherData();
 });
 // append content to header

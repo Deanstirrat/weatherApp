@@ -3,7 +3,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
+  entry: {
+    index: "./src/index.js",
+    displayAddDat: "./src/displayAdditionalWeatherData.js",
+    displayDat: "./src/displayWeatherData.js",
+    getDat: "./src/getWeatherData.js",
+  },
   devtool: "inline-source-map",
   devServer: {
     static: "./dist",

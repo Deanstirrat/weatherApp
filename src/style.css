@@ -119,6 +119,7 @@ html {
   width: 70%;
   min-width: 150px;
   object-fit: fill;
+  border-radius: 15px;
 }
 
 .description {
