@@ -3,10 +3,8 @@ export default async function getWeatherData(locationName) {
 
   try {
     // use api to get lat/lon from location name
-    const locationNameJson = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=1&appid=${weatherKey}`,
-      { mode: "cors" }
-    );
+    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=1&appid=${weatherKey}`;
+    const locationNameJson = await fetch(url, { mode: "cors" });
     const locationNameData = await locationNameJson.json();
     if (locationNameData.length === 0) {
       // no location found
@@ -14,10 +12,8 @@ export default async function getWeatherData(locationName) {
       return 0;
     }
     // use lat/lon to get weather data from api
-    const weatherJson = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${locationNameData[0].lat}&lon=${locationNameData[0].lon}&units=imperial&appid=${weatherKey}`,
-      { mode: "cors" }
-    );
+    const url2 = `https://api.openweathermap.org/data/2.5/weather?lat=${locationNameData[0].lat}&lon=${locationNameData[0].lon}&units=imperial&appid=${weatherKey}`;
+    const weatherJson = await fetch(url2, { mode: "cors" });
     const weatherData = await weatherJson.json();
     const weatherDataObj = (
       currentWeatherSearchTerm,
