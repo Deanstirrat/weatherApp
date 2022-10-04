@@ -1,19 +1,11 @@
 export default async function getWeatherData(locationName) {
   const weatherKey = "7cb9b6da278de791a6c1c75c12413095";
 
+  // use lat/lon to get weather data from api
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${locationName}&units=imperial&appid=${weatherKey}`;
   try {
-    // use api to get lat/lon from location name
-    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=1&appid=${weatherKey}`;
-    const locationNameJson = await fetch(url, { mode: "cors" });
-    const locationNameData = await locationNameJson.json();
-    if (locationNameData.length === 0) {
-      // no location found
-      alert(`city ${locationName} not found`);
-      return 0;
-    }
-    // use lat/lon to get weather data from api
-    const url2 = `https://api.openweathermap.org/data/2.5/weather?lat=${locationNameData[0].lat}&lon=${locationNameData[0].lon}&units=imperial&appid=${weatherKey}`;
-    const weatherJson = await fetch(url2, { mode: "cors" });
+    const weatherJson = await fetch(url, { mode: "cors" });
+    if (!weatherJson.ok) throw new Error(`City ${locationName} not found`);
     const weatherData = await weatherJson.json();
     const weatherDataObj = (
       currentWeatherSearchTerm,
@@ -46,6 +38,7 @@ export default async function getWeatherData(locationName) {
       weatherData.clouds.all
     );
   } catch (error) {
-    console.log(error);
+    alert(error);
+    return null;
   }
 }
