@@ -1,0 +1,128 @@
+@font-face {
+  font-family: weatherFont;
+  src: url("./SunnyspellsRegular-MV9ze.otf") format("opentype");
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: weatherFont;
+}
+
+.content {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  height: 100%;
+}
+
+.mainColorSunny {
+  background-color: #1982c4;
+}
+.accentColorSunny {
+  background-color: #ffca3a;
+}
+
+.mainColorCloudy {
+  background-color: #495057;
+}
+.accentColorCloudy {
+  background-color: #adb5bd;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchContainer {
+  border-style: none;
+  border-bottom-style: solid;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 4rem;
+  margin: 30px;
+}
+.searchInput {
+  text-align: center;
+  border-style: none;
+  width: 100%;
+  background-color: inherit;
+  font-size: 3rem;
+  color: inherit;
+}
+.searchButton {
+  background-color: inherit;
+  border-style: none;
+}
+.searchButtonImage {
+  max-height: 100%;
+  max-width: auto;
+}
+
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 70%;
+  width: auto;
+  padding: 15px;
+  border-radius: 10px;
+}
+.container2 {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  width: auto;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.container2 > * {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.cloudChart {
+  object-fit: scale-down;
+}
+
+.iconDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 20vw;
+  text-align: right;
+}
+
+.image {
+  height: 70%;
+  min-height: 150px;
+  width: 70%;
+  min-width: 150px;
+  object-fit: fill;
+}
+
+.description {
+  text-align: center;
+  margin: 0;
+  font-size: min(10vh, 10vw);
+}
